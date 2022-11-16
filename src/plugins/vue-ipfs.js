@@ -1,6 +1,7 @@
 // import { create } from 'ipfs-core'
 
 import * as IPFS from 'ipfs-core'
+import all from 'it-all'
 
 console.log(IPFS)
 
@@ -35,27 +36,49 @@ export default {
       let current = await ipfs.files.stat(path)
       current._path = path
       store.commit('ipfs/setCurrent',current)
+      await ls(current._path)
     }
 
 
     app.config.globalProperties.$upload = async function(files){
-      // let folder = store.state.ipfs.current
-      // console.log(folder)
-      // let opts = {
-      //   truncate: true,
-      //   create: true
-      // }
+      let folder = store.state.ipfs.current
+      console.log(folder)
+      let opts = {
+        //truncate: true,
+        create: true
+      }
 
       // console.log(global)
+      await Promise.all(Array.from(files).map(f => ipfs.files.write(folder._path + f.name, f, opts)))
 
-      for (let file of files) {
-        console.log(file)
-        await ipfs.files.write('/' + file.name, file, { create: true })
-        // Your code to add one file to MFS goes here
-        // await ipfs.files.write('/' + file.name, file, opts, (err) => {
-        //   console.log(err)
-        // })
-      }
+      // for await (let file of files) {
+      //   console.log(file)
+      //   await ipfs.files.write(folder._path + file.name, file, opts, (err) => {
+      //     console.log(err)
+      //   })
+      //
+      //
+      //   // Your code to add one file to MFS goes here
+      //   // await ipfs.files.write('/' + file.name, file, opts, (err) => {
+      //   //   console.log(err)
+      //   // })
+      // }
+
+      // const result = []
+      //
+      // for await (const resultPart of ipfs.files.ls(folder._path)) {
+      //   result.push(resultPart)
+      // }
+      // console.log(result)
+      await ls(folder._path)
+
+    }
+
+    async function ls(path){
+      let result = await all(ipfs.files.ls(path))
+      console.log(result)
+      store.commit('ipfs/setCurrentContent',result)
+      return result
     }
 
 

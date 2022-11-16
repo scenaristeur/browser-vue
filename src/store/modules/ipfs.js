@@ -10,7 +10,8 @@ const state = () => ({
   // id: "",
   // agentVersion: "",
   online: false,
-  result: null
+  result: null,
+  currentContent: []
 })
 
 const mutations = {
@@ -30,6 +31,9 @@ const mutations = {
   },
   setResult(state, r){
     state.result = r
+  },
+  setCurrentContent(state, c){
+    state.currentContent = c
   },
   // updateDoc(state, newDoc) {
   //   state.doc = newDoc
