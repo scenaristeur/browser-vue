@@ -40,6 +40,9 @@ export default {
     }
 
 
+
+
+
     app.config.globalProperties.$upload = async function(files){
       let folder = store.state.ipfs.current
       console.log(folder)
@@ -48,8 +51,9 @@ export default {
         create: true
       }
 
+      let actualPath = folder._path.endsWith('/') == true ? folder._path : folder._path+'/'
       // console.log(global)
-      await Promise.all(Array.from(files).map(f => ipfs.files.write(folder._path + f.name, f, opts)))
+      await Promise.all(Array.from(files).map(f => ipfs.files.write(actualPath + f.name, f, opts)))
 
       // for await (let file of files) {
       //   console.log(file)
@@ -94,6 +98,12 @@ export default {
       store.commit('ipfs/setResult',result)
       return result
     }
+
+    app.config.globalProperties.$mkdir = async function(path){
+      await ipfs.files.mkdir(path, { parents: true })
+      await this.$get(path)
+    }
+
 
   }
 }

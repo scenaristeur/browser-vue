@@ -1,8 +1,8 @@
 <template>
-  <div class="upload-files">
+  <!-- <div class="upload-files"> -->
     <input type="file" ref="input"  multiple @change="upload"/>
 
-  </div>
+  <!-- </div> -->
 </template>
 
 <script>

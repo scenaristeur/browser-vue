@@ -15,7 +15,7 @@
 <FileBrowser />
 <CurrentCid />
 
-<UploadFiles />
+
 <OperationResult />
 
 <footer>
@@ -28,7 +28,7 @@
 import IpfsInfo from "@/components/IpfsInfo.vue";
 import FileBrowser from "@/views/FileBrowser.vue";
 import CurrentCid from "@/components/CurrentCid.vue";
-import UploadFiles from "@/components/UploadFiles.vue";
+
 import OperationResult from "@/components/OperationResult.vue";
 
 export default {
@@ -38,7 +38,6 @@ export default {
     // HelloWorld,
     FileBrowser,
     CurrentCid,
-    UploadFiles,
     OperationResult
   },
   created(){
