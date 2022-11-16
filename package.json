@@ -8,7 +8,9 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "test": "npm run build && playwright test tests"
+    "test": "npm run build && playwright test tests",
+    "git": "npm run build && git add . && git commit -m",
+    "postgit": "git push && git subtree push --prefix dist origin gh-pages"
   },
   "browserslist": [
     "> 1%",
