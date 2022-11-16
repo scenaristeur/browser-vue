@@ -8,6 +8,8 @@ console.log(IPFS)
 export default {
   install: (app, options) => {
     let store = options.store
+    if (typeof window !== "undefined") window.global = window;
+
     let ipfs
 
 
@@ -35,10 +37,34 @@ export default {
       store.commit('ipfs/setCurrent',current)
     }
 
-    app.config.globalProperties.$upload = async function(files){
-      const result = []
 
-      for await (const resultPart of ipfs.addAll(files)) {
+    app.config.globalProperties.$upload = async function(files){
+      // let folder = store.state.ipfs.current
+      // console.log(folder)
+      // let opts = {
+      //   truncate: true,
+      //   create: true
+      // }
+
+      // console.log(global)
+
+      for (let file of files) {
+        console.log(file)
+        await ipfs.files.write('/' + file.name, file, { create: true })
+        // Your code to add one file to MFS goes here
+        // await ipfs.files.write('/' + file.name, file, opts, (err) => {
+        //   console.log(err)
+        // })
+      }
+    }
+
+
+
+    app.config.globalProperties.$upload1 = async function(files){
+      const result = []
+      let f_array = Array.from(files).map((x) => ({path: x.name, content: x, type: x.type}))
+      console.log(f_array)
+      for await (const resultPart of ipfs.addAll(f_array, { wrapWithDirectory: true })) {
         result.push(resultPart)
       }
       console.log(result)
