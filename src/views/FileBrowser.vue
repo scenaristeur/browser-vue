@@ -2,18 +2,18 @@
   <div class="browser">
 
     <h3>Browser</h3>
-<button @click="getFolder()"> GetRoot Folder </button>
+    <button @click="getFolder()"> GetRoot Folder </button>
   </div>
 </template>
 
 <script>
 export default {
   name: "FileBrowser",
-methods:{
-  getFolder(path="/"){
-    this.$getFolder(path)
+  methods:{
+    getFolder(path="/"){
+      this.$get(path)
+    }
   }
-}
 };
 </script>
 

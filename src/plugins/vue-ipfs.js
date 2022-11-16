@@ -16,14 +16,16 @@ export default {
       // ipfs = await IPFS.create()
       ipfs = app.config.globalProperties.$ipfs = await IPFS.create(options)
       let id = await ipfs.id()
-      console.log(ipfs,id )
+      console.log(ipfs,id)
       store.commit('core/setIpfsNode',id)
     }
 
-    app.config.globalProperties.$getFolder = async function(path= '/'){
-      let folder = {}
-      folder = await ipfs.files.stat(path)
-      store.commit('ipfs/setFolder',folder)
+    //MFS, Mutable File System https://proto.school/mutable-file-system/02
+
+
+    app.config.globalProperties.$get = async function(path= '/'){
+      let current = await ipfs.files.stat(path)
+      store.commit('ipfs/setCurrent',current)
     }
 
 

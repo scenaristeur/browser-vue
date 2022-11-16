@@ -4,13 +4,14 @@
 // import { v4 as uuidv4 } from 'uuid';
 
 const state = () => ({
-  folder: null
+  current: null
 })
 
 const mutations = {
-  setFolder(state, f){
-    console.log(f)
-    state.folder = f
+  setCurrent(state, c){
+    console.log(c)
+    console.log(c.cid.toString())
+    state.current = c
   },
   // updateDoc(state, newDoc) {
   //   state.doc = newDoc
