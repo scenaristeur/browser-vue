@@ -4,7 +4,12 @@
 // import { v4 as uuidv4 } from 'uuid';
 
 const state = () => ({
-  current: null
+  node: null,
+  current: null,
+  status: "Connecting to IPFS...",
+  // id: "",
+  // agentVersion: "",
+  online: false
 })
 
 const mutations = {
@@ -12,6 +17,15 @@ const mutations = {
     console.log(c)
     console.log(c.cid.toString())
     state.current = c
+  },
+  setIpfsNode(state, n){
+    state.node = n
+  },
+  setStatus(state, s){
+    state.status = s
+  },
+  setOnline(state, o){
+    state.online = o
   },
   // updateDoc(state, newDoc) {
   //   state.doc = newDoc
