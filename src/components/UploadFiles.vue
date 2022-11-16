@@ -1,6 +1,6 @@
 <template>
   <!-- <div class="upload-files"> -->
-    <input type="file" ref="input"  multiple @change="upload"/>
+  <input type="file" ref="input"  multiple @change="upload"/>
 
   <!-- </div> -->
 </template>
@@ -13,6 +13,8 @@ export default {
       let files = this.$refs.input.files
       console.log(files)
       this.$upload(files)
+      // TODO mask long name file after upload one file
+      // this.$refs.input.value = "yep"
     }
   }
 

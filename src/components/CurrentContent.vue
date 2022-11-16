@@ -1,6 +1,9 @@
 <template>
   <div class="current-content" v-if="current!= null">
-    {{ current._path}} <div v-if="content.folders!= undefined">| {{ content.folders.length}} folders | {{ content.files.length}} files</div>
+    <!-- {{ current._path}} -->
+    <input ref="current" v-model="current._path" />
+
+    <span v-if="content.folders!= undefined"> {{ content.folders.length}} folders | {{ content.files.length}} files</span>
     <div class="scroll">
       <ul>
 
