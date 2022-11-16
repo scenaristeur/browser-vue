@@ -29,15 +29,22 @@ export default {
 
     //MFS, Mutable File System https://proto.school/mutable-file-system/02
 
-
     app.config.globalProperties.$get = async function(path= '/'){
       let current = await ipfs.files.stat(path)
       current._path = path
       store.commit('ipfs/setCurrent',current)
     }
 
+    app.config.globalProperties.$upload = async function(files){
+      const result = []
 
-
+      for await (const resultPart of ipfs.addAll(files)) {
+        result.push(resultPart)
+      }
+      console.log(result)
+      store.commit('ipfs/setResult',result)
+      return result
+    }
 
   }
 }

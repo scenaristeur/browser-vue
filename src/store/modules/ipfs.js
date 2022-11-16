@@ -9,7 +9,8 @@ const state = () => ({
   status: "Connecting to IPFS...",
   // id: "",
   // agentVersion: "",
-  online: false
+  online: false,
+  result: null
 })
 
 const mutations = {
@@ -26,6 +27,9 @@ const mutations = {
   },
   setOnline(state, o){
     state.online = o
+  },
+  setResult(state, r){
+    state.result = r
   },
   // updateDoc(state, newDoc) {
   //   state.doc = newDoc

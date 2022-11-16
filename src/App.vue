@@ -9,6 +9,8 @@
   </svg> -->
   <!-- <img class="ipfs-logo" alt="IPFS logo" src="./assets/logo.svg" /> -->
   <CurrentCid />
+  <OperationResult />
+  <UploadFiles />
 </header>
 <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
 <FileBrowser />
@@ -20,6 +22,8 @@
 import IpfsInfo from "./components/IpfsInfo.vue";
 import FileBrowser from "./views/FileBrowser.vue";
 import CurrentCid from "./components/CurrentCid.vue";
+import UploadFiles from "./components/UploadFiles.vue";
+import OperationResult from "./components/OperationResult.vue";
 
 export default {
   name: "App",
@@ -27,7 +31,9 @@ export default {
     IpfsInfo,
     // HelloWorld,
     FileBrowser,
-    CurrentCid
+    CurrentCid,
+    UploadFiles,
+    OperationResult
   },
   created(){
     this.$initIpfs()
