@@ -1,5 +1,5 @@
 <template>
-  <div class="browser">
+  <div class="browser" v-if="online == true">
 
     <h3>Browser</h3>
     <div>
@@ -33,6 +33,7 @@
       async addFolder(){
         var path = prompt("type the path :", this.path)
         path = path.endsWith('/') ? path.slice(0, -1) : path
+        path = path.startsWith('/') ? path  : '/'+path
         console.log(path);
         await this.$mkdir(path)
       }

@@ -8,19 +8,21 @@
       <ul>
 
         <li v-if="current._path != '/'">
-          <button @click="getParent">parent</button>
+          <button @click="getParent"> 📁 ..</button>
         </li>
 
         <li v-for="c in content.folders" :key="c.cid">
-          <button @click="getFolder(c.name)">  {{c.name}} {{c.type}}</button>
+          <button @click="getFolder(c.name)"> 📁 {{c.name}}</button>
           <GatewayLink :item="c" />
           <!-- <GatewayPreview :item="c" /> -->
           <!-- <FileContent :item="r" /> -->
         </li>
-        <li v-for="c in content.files" :key="c.cid">
-          {{c.name}} {{c.type}}
+        <li v-for="c in content.files" :key="c.cid" style="v-align:center">
+          <span v-if="c.name.endsWith('png') || c.name.endsWith('.jps')">🖼   <GatewayPreview :item="c" /></span><span v-else> 📄</span>  <!-- -->
+
+          {{c.name}}
           <GatewayLink :item="c" />
-          <GatewayPreview :item="c" />
+
           <!-- <FileContent :item="r" /> -->
         </li>
       </ul>
@@ -29,6 +31,7 @@
 </template>
 
 <script>
+// icons https://emojicombos.com/open-folder-ascii-art
 import GatewayLink from "@/components/GatewayLink.vue";
 import GatewayPreview from "@/components/GatewayPreview.vue";
 export default {
