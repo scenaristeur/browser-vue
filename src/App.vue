@@ -1,29 +1,35 @@
 <template>
   <header class="header">
-    <!-- <img alt="Vue logo" src="./assets/vue_logo.png" /> -->
+    <!-- <img alt="Vue logo" src="@/assets/vue_logo.png" /> -->
     <!-- <svg class="heart" viewBox="0 0 32 29.6">
     <path
     d="M23.6,0c-3.4,0-6.3,2.7-7.6,5.6C14.7,2.7,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4c0,9.4,9.5,11.9,16,21.2
     c6.1-9.3,16-12.1,16-21.2C32,3.8,28.2,0,23.6,0z"
     />
   </svg> -->
-  <!-- <img class="ipfs-logo" alt="IPFS logo" src="./assets/logo.svg" /> -->
-  <CurrentCid />
-  <OperationResult />
-  <UploadFiles />
+  <!-- <img class="ipfs-logo" alt="IPFS logo" src="@/assets/logo.svg" /> -->
+  Ipfs Browser
+
 </header>
 <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
 <FileBrowser />
-<IpfsInfo />
+<CurrentCid />
+
+<UploadFiles />
+<OperationResult />
+
+<footer>
+  <IpfsInfo />
+</footer>
 </template>
 
 <script>
-// import HelloWorld from "./components/HelloWorld.vue";
-import IpfsInfo from "./components/IpfsInfo.vue";
-import FileBrowser from "./views/FileBrowser.vue";
-import CurrentCid from "./components/CurrentCid.vue";
-import UploadFiles from "./components/UploadFiles.vue";
-import OperationResult from "./components/OperationResult.vue";
+// import HelloWorld from "@/components/HelloWorld.vue";
+import IpfsInfo from "@/components/IpfsInfo.vue";
+import FileBrowser from "@/views/FileBrowser.vue";
+import CurrentCid from "@/components/CurrentCid.vue";
+import UploadFiles from "@/components/UploadFiles.vue";
+import OperationResult from "@/components/OperationResult.vue";
 
 export default {
   name: "App",

@@ -1,3 +1,6 @@
+<a href="https://scenaristeur.github.io/browser-vue/" target="_blank">Demo</a>
+
+
 # cours
 https://proto.school/course/ipfs
 
@@ -9,26 +12,26 @@ https://proto.school/course/ipfs
 
 
 <p align="center">
-  <a href="https://js.ipfs.io" title="JS IPFS">
-    <img src="https://ipfs.io/ipfs/Qme6KJdKcp85TYbLxuLV7oQzMiLremD7HMoXLZEmgo6Rnh/js-ipfs-sticker.png" alt="IPFS in JavaScript logo" width="244" />
-  </a>
+<a href="https://js.ipfs.io" title="JS IPFS">
+<img src="https://ipfs.io/ipfs/Qme6KJdKcp85TYbLxuLV7oQzMiLremD7HMoXLZEmgo6Rnh/js-ipfs-sticker.png" alt="IPFS in JavaScript logo" width="244" />
+</a>
 </p>
 
 <h3 align="center"><b>IPFS Vue App</b></h3>
 
 <p align="center">
-  <b><i>Using js-ipfs in a vue cli project</i></b>
-  <br />
-  <br />
-  <img src="https://raw.githubusercontent.com/jlord/forkngo/gh-pages/badges/cobalt.png" width="200">
-  <br>
-  <a href="https://github.com/ipfs/js-ipfs/tree/master/docs">Explore the docs</a>
-  ·
-  <a href="https://codesandbox.io/">View Demo</a>
-  ·
-  <a href="https://github.com/ipfs-examples/js-ipfs-examples/issues">Report Bug</a>
-  ·
-  <a href="https://github.com/ipfs-examples/js-ipfs-examples/issues">Request Feature/Example</a>
+<b><i>Using js-ipfs in a vue cli project</i></b>
+<br />
+<br />
+<img src="https://raw.githubusercontent.com/jlord/forkngo/gh-pages/badges/cobalt.png" width="200">
+<br>
+<a href="https://github.com/ipfs/js-ipfs/tree/master/docs">Explore the docs</a>
+·
+<a href="https://codesandbox.io/">View Demo</a>
+·
+<a href="https://github.com/ipfs-examples/js-ipfs-examples/issues">Report Bug</a>
+·
+<a href="https://github.com/ipfs-examples/js-ipfs-examples/issues">Request Feature/Example</a>
 </p>
 
 ## Table of Contents
@@ -36,14 +39,14 @@ https://proto.school/course/ipfs
 - [Table of Contents](#table-of-contents)
 - [About The Project](#about-the-project)
 - [Getting Started](#getting-started)
-  - [Pre requisites](#pre-requisites)
-  - [Installation and Running example](#installation-and-running-example)
-  - [Available Scripts from vue cli](#available-scripts-from-vue-cli)
-    - [Compiles and hot-reloads for development](#compiles-and-hot-reloads-for-development)
-    - [Compiles and minifies for production](#compiles-and-minifies-for-production)
-  - [Run your tests](#run-your-tests)
-    - [Lints and fixes files](#lints-and-fixes-files)
-    - [Customize configuration](#customize-configuration)
+- [Pre requisites](#pre-requisites)
+- [Installation and Running example](#installation-and-running-example)
+- [Available Scripts from vue cli](#available-scripts-from-vue-cli)
+- [Compiles and hot-reloads for development](#compiles-and-hot-reloads-for-development)
+- [Compiles and minifies for production](#compiles-and-minifies-for-production)
+- [Run your tests](#run-your-tests)
+- [Lints and fixes files](#lints-and-fixes-files)
+- [Customize configuration](#customize-configuration)
 - [Usage](#usage)
 - [References](#references)
 - [Documentation](#documentation)
@@ -124,8 +127,8 @@ _For more examples, please refer to the [Documentation](#documentation)_
 ## References
 
 - Documentation:
-  - [IPFS CONFIG](https://github.com/ipfs/js-ipfs/blob/master/docs/CONFIG.md)
-  - [MISCELLANEOUS](https://github.com/ipfs/js-ipfs/blob/master/docs/core-api/MISCELLANEOUS.md)
+- [IPFS CONFIG](https://github.com/ipfs/js-ipfs/blob/master/docs/CONFIG.md)
+- [MISCELLANEOUS](https://github.com/ipfs/js-ipfs/blob/master/docs/core-api/MISCELLANEOUS.md)
 
 ## Documentation
 
@@ -156,8 +159,8 @@ Read the [Code of Conduct](https://github.com/ipfs/community/blob/master/code-of
 - **Check out existing issues** The [issue list](https://github.com/ipfs/js-ipfs/issues) has many that are marked as ['help wanted'](https://github.com/ipfs/js-ipfs/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+label%3A%22help+wanted%22) or ['difficulty:easy'](https://github.com/ipfs/js-ipfs/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+label%3Adifficulty%3Aeasy) which make great starting points for development, many of which can be tackled with no prior IPFS knowledge
 - **Look at the [IPFS Roadmap](https://github.com/ipfs/roadmap)** This are the high priority items being worked on right now
 - **Perform code reviews** More eyes will help
-  a. speed the project along
-  b. ensure quality, and
-  c. reduce possible future bugs.
+a. speed the project along
+b. ensure quality, and
+c. reduce possible future bugs.
 - **Add tests**. There can never be enough tests.
 - **Join the [Weekly Core Implementations Call](https://github.com/ipfs/team-mgmt/issues/992)** it's where everyone discusses what's going on with IPFS and what's next
