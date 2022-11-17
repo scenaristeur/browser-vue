@@ -118,7 +118,6 @@
 </template>
 
 <script>
-// icons https://emojicombos.com/open-folder-ascii-art
 import GatewayLink from "@/components/GatewayLink.vue";
 import GatewayPreview from "@/components/GatewayPreview.vue";
 
