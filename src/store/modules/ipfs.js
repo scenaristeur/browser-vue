@@ -11,7 +11,8 @@ const state = () => ({
   // agentVersion: "",
   online: false,
   result: null,
-  currentContent: []
+  currentContent: [],
+  clipboard: []
 })
 
 const mutations = {
@@ -35,6 +36,9 @@ const mutations = {
   setCurrentContent(state, c){
     state.currentContent = c
   },
+  setClipboard(state, c){
+    state.clipboard = c
+  }
   // updateDoc(state, newDoc) {
   //   state.doc = newDoc
   //   //render(newDoc)

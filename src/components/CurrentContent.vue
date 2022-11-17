@@ -4,6 +4,17 @@
     <input ref="current" v-model="current._path" />
 
     <span v-if="content.folders!= undefined"> {{ content.folders.length}} folders | {{ content.files.length}} files</span>
+
+
+    <div v-if="selected.length > 0">
+      selected : {{selected}}
+      <button @click="cut"> cut</button>
+      <button @click="paste"> paste</button>
+      <button @click="move" disabled> move</button>
+      <button @click="remove" disabled> delete</button>
+    </div>
+
+
     <div class="scroll">
       <ul>
 
@@ -12,13 +23,15 @@
         </li>
 
         <li v-for="c in content.folders" :key="c.cid">
+          <input type="checkbox" :value="c.name" :id="c.name" v-model="selected">
           <button @click="getFolder(c.name)"> 📁 {{c.name}}</button>
           <GatewayLink :item="c" />
           <!-- <GatewayPreview :item="c" /> -->
           <!-- <FileContent :item="r" /> -->
         </li>
         <li v-for="c in content.files" :key="c.cid" style="v-align:center">
-          <span v-if="c.name.endsWith('png') || c.name.endsWith('.jps')">🖼   <GatewayPreview :item="c" /></span><span v-else> 📄</span>  <!-- -->
+          <input type="checkbox" :value="c.name" :id="c.name" v-model="selected">
+          <span v-if="c.name.endsWith('png') || c.name.endsWith('.jpg')">🖼   <GatewayPreview :item="c" /></span><span v-else> 📄</span>  <!-- -->
 
           {{c.name}}
           <GatewayLink :item="c" />
@@ -26,7 +39,14 @@
           <!-- <FileContent :item="r" /> -->
         </li>
       </ul>
+
     </div>
+
+
+
+
+
+
   </div>
 </template>
 
@@ -43,7 +63,8 @@ export default {
   },
   data(){
     return {
-      content: {}
+      content: {},
+      selected : []
     }
   },
   methods:{
@@ -64,6 +85,38 @@ export default {
       console.log("parent", new_path)
       new_path.length == 0 ? new_path = '/' : ""
       this.$get(new_path)
+    },
+    cut(){
+      let actualPath = this.current._path.endsWith('/') ? this.current._path : this.current._path+'/'
+      console.log(this.selected)
+      //this.$cut()
+      let cuted = this.selected.map(x => actualPath+x)
+      this.$store.commit('ipfs/setClipboard', cuted)
+    },
+    async paste(){
+      // let actualPath = this.current._path.endsWith('/') ? this.current._path : this.current._path+'/'
+      // console.log(this.selected)
+      console.log(this.clipboard)
+      // let actualPath = this.current._path.endsWith('/') ? this.current._path : this.current._path+'/'
+      for await (const f of this.clipboard){
+        await this.$ipfs.files.mv(f, this.current._path, {parents: true, flush: true})
+      }
+
+      this.$get(this.current._path)
+
+
+
+
+
+    },
+    move(){
+      // let actualPath = this.current._path.endsWith('/') ? this.current._path : this.current._path+'/'
+      console.log(this.selected)
+      this.$move()
+    },
+    remove(){
+      // let actualPath = this.current._path.endsWith('/') ? this.current._path : this.current._path+'/'
+      console.log(this.selected)
     }
   },
   watch:{
@@ -80,6 +133,9 @@ export default {
     },
     current(){
       return this.$store.state.ipfs.current
+    },
+    clipboard(){
+      return this.$store.state.ipfs.clipboard
     }
   }
 }
