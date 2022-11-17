@@ -7,7 +7,7 @@
       <button @click="getFolder()">GetRoot Folder</button>
       <button @click="addFolder()">add (sub)folder</button>
       <UploadFiles />
-      <button @click="openLoader()" disabled>Load a remote older</button>
+      <button @click="openLoader()">Load a remote computer</button>
     </div>
     <hr>
     <CurrentContent />

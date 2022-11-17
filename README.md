@@ -1,6 +1,18 @@
 <a href="https://scenaristeur.github.io/browser-vue/" target="_blank">Demo</a>
 
 
+# CIDS
+
+- empty / : QmUNLLsPACCz1vLxQVkXqqLX5R1X345qqfHbsf67hvA3Nn : directory
+- empty computer / : QmS66rS9dDPeHPZ7Htzu9fo5wCJbc7CKrBAABvBmtxqhq9 : directory
+- computer with boot, io, kernel, os, processor, ram, test / : QmbFpibS9hRNJt6ous3EDUJUkbobctPGxP3gYPcqK5sQRL : directory
+- computer above and home / : QmXVaYSe8EEmVQTsuYVYZ75dGyRmTpVskpLqAVZ2GAfeMC : directory
+
+
+
+
+
+
 # cours
 https://proto.school/course/ipfs
 
