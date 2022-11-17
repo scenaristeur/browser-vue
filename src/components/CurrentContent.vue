@@ -11,7 +11,7 @@
       <button @click="cut"> cut</button>
       <button @click="paste"> paste</button>
       <button @click="move" disabled> move</button>
-      <button @click="remove" disabled> delete</button>
+      <button @click="remove" > delete</button>
     </div>
 
 
@@ -104,7 +104,7 @@ export default {
 
       this.$get(this.current._path)
 
-
+      this.selected = []
 
 
 
@@ -114,9 +114,20 @@ export default {
       console.log(this.selected)
       this.$move()
     },
-    remove(){
+    async remove(){
       // let actualPath = this.current._path.endsWith('/') ? this.current._path : this.current._path+'/'
       console.log(this.selected)
+      let actualPath = this.current._path.endsWith('/') ? this.current._path : this.current._path+'/'
+      console.log(this.selected)
+      //this.$cut()
+      let cuted = this.selected.map(x => actualPath+x)
+
+      for await (const f of cuted){
+        await this.$ipfs.files.rm(f, { recursive: true })
+      }
+
+      this.$get(this.current._path)
+      this.selected = []
     }
   },
   watch:{
