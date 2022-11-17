@@ -12,7 +12,7 @@
         </li>
 
         <li v-for="c in content.folders" :key="c.cid">
-          <button @click="getFolder(c.name)"> 📁 {{c.name}}</button>
+          <button class="btn" @click="getFolder(c.name)"> 📁 {{c.name}}</button>
           <GatewayLink :item="c" />
           <!-- <GatewayPreview :item="c" /> -->
           <!-- <FileContent :item="r" /> -->
