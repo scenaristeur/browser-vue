@@ -28,7 +28,7 @@
 
           <!-- gestion d'un autre rootfolder avec load, get ne fonctionne pas sur un CID -->
           <button @click="getFolder(c.name)" v-if="c.type == 'directory'"> 📁 {{c.name}}</button>
-          <button @click="load(c)" v-else>load {{ c.root }} 📁 {{c.name}}</button>
+          <button @click="load(c)" v-else>📁 {{c.name}} *</button> <!-- /*load {{ c.root }}*/ -->
           <GatewayLink :item="c" />
           <!-- <GatewayPreview :item="c" /> -->
           <!-- <FileContent :item="r" /> -->

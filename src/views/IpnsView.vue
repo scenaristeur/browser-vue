@@ -3,8 +3,14 @@
   <!-- <input type="file" ref="input"  multiple @change="upload"/> -->
   <!-- {{ keys }} -->
   <button @click="getKeys">publications</button>
+  <button @click="importPem">import pem</button>
   <ul>
-    <li v-for="k in keys" :key="k.id"><button @click="resolve(k)" >{{k.name}}</button></li>
+    <li v-for="k in keys" :key="k.id"><button @click="resolve(k)" >{{k.name}}</button>
+
+      <button @click="exportPub(k)">export pem</button>
+
+
+    </li>
   </ul>
   <!-- </div> -->
 </template>
@@ -34,6 +40,27 @@ export default {
       console.log(keys/*,JSON.stringify(r)*/);
       // }
       this.$store.commit('ipfs/setKeys', keys)
+    },
+    async exportPub(k){
+      // https://github.com/ipfs/js-ipfs/tree/master/packages/interface-ipfs-core/src/key
+      let password = prompt("create a password :", '')
+      let pem = await this.$ipfs.key.export(k.name, password)
+      console.log(pem)
+    },
+    async importPem(){
+      let exported_pem = prompt("Enter the exported pem :", '')
+      let pass = prompt("Enter the pass :", '')
+      let name = prompt("Choose a name :", '')
+      try{
+        const importedKey = await this.$ipfs.key.import(name, exported_pem, pass)
+        console.log(importedKey)
+        this.resolve(importedKey)
+      }catch(e){
+        alert(e)
+      }
+
+
+
     }
   },
   computed:{
