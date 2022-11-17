@@ -1,5 +1,5 @@
 <template>
-  <div class="browser">
+  <div class="browser" v-if="online== true">
 
     <h3>Browser</h3>
     <div>
