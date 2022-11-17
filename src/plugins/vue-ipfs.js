@@ -47,8 +47,9 @@ export default {
       let folder = store.state.ipfs.current
       console.log(folder)
       let opts = {
-        //truncate: true,
-        create: true
+        truncate: true,
+        create: true,
+        flush: true
       }
 
       let actualPath = folder._path.endsWith('/') == true ? folder._path : folder._path+'/'

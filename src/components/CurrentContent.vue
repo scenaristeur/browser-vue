@@ -31,7 +31,7 @@
         </li>
         <li v-for="c in content.files" :key="c.cid" style="v-align:center">
           <input type="checkbox" :value="c.name" :id="c.name" v-model="selected">
-          <span v-if="c.name.endsWith('png') || c.name.endsWith('.jpg')">🖼   <GatewayPreview :item="c" /></span><span v-else> 📄</span>  <!-- -->
+          <span v-if="c.name.endsWith('png') || c.name.endsWith('.jpg') || c.name.endsWith('.jpeg')">🖼   <GatewayPreview :item="c" /></span><span v-else> 📄</span>  <!-- -->
 
           {{c.name}}
           <GatewayLink :item="c" />
