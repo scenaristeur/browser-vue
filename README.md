@@ -7,6 +7,7 @@
 - empty computer / : QmS66rS9dDPeHPZ7Htzu9fo5wCJbc7CKrBAABvBmtxqhq9 : directory
 - computer with boot, io, kernel, os, processor, ram, test / : QmbFpibS9hRNJt6ous3EDUJUkbobctPGxP3gYPcqK5sQRL : directory
 - computer above and home / : QmXVaYSe8EEmVQTsuYVYZ75dGyRmTpVskpLqAVZ2GAfeMC : directory
+- another computer home test tmp / : QmYLMaBa9bd2cfkD8UU3boFC7bRrCR74KnxGF2cFrpbyLf : directory
 
 
 

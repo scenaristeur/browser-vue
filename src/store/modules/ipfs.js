@@ -12,7 +12,8 @@ const state = () => ({
   online: false,
   result: null,
   currentContent: [],
-  clipboard: []
+  clipboard: [],
+  keys: []
 })
 
 const mutations = {
@@ -38,6 +39,10 @@ const mutations = {
   },
   setClipboard(state, c){
     state.clipboard = c
+  },
+  setKeys(state, k){
+    console.log(k)
+    state.keys = k
   }
   // updateDoc(state, newDoc) {
   //   state.doc = newDoc

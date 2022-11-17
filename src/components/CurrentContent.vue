@@ -8,10 +8,11 @@
 
     <div v-if="selected.length > 0">
       selected : {{selected}}
-      <button @click="cut"> cut</button>
-      <button @click="paste"> paste</button>
-      <button @click="move" disabled> move</button>
-      <button @click="remove" > delete</button>
+      <button @click="cut">cut</button>
+      <button @click="paste">paste</button>
+      <button @click="move" disabled>move</button>
+      <button @click="remove" >delete</button>
+
     </div>
 
 
@@ -24,7 +25,10 @@
 
         <li v-for="c in content.folders" :key="c.cid">
           <input type="checkbox" :value="c.name" :id="c.name" v-model="selected">
-          <button @click="getFolder(c.name)"> 📁 {{c.name}}</button>
+
+          <!-- gestion d'un autre rootfolder avec load, get ne fonctionne pas sur un CID -->
+          <button @click="getFolder(c.name)" v-if="c.type == 'directory'"> 📁 {{c.name}}</button>
+          <button @click="load(c)" v-else>load {{ c.root }} 📁 {{c.name}}</button>
           <GatewayLink :item="c" />
           <!-- <GatewayPreview :item="c" /> -->
           <!-- <FileContent :item="r" /> -->
@@ -101,13 +105,8 @@ export default {
       for await (const f of this.clipboard){
         await this.$ipfs.files.mv(f, this.current._path, {parents: true, flush: true})
       }
-
       this.$get(this.current._path)
-
       this.selected = []
-
-
-
     },
     move(){
       // let actualPath = this.current._path.endsWith('/') ? this.current._path : this.current._path+'/'
@@ -128,12 +127,18 @@ export default {
 
       this.$get(this.current._path)
       this.selected = []
+    },
+    async load(c){
+      console.log(c.cid.toString())
+      this.$load('/'+c.cid.toString())
     }
   },
   watch:{
     currentContent(){
-      this.content.folders = this.currentContent.filter(x => x.type == "directory").sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0))
+      this.content.folders = this.currentContent.filter(x => x.type.startsWith("dir")).sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0))
       this.content.files = this.currentContent.filter(x => x.type == "file").sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0))
+      console.log(this.content)
+
     }
   },
 

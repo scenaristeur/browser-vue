@@ -2,6 +2,7 @@
 
 import * as IPFS from 'ipfs-core'
 import all from 'it-all'
+// import uint8ArrayConcat from 'uint8arrays'
 
 console.log(IPFS)
 
@@ -26,7 +27,7 @@ export default {
         store.commit('ipfs/setIpfsNode',id)
       } catch (err) {
         // Set error status text.
-        store.commit('ipfs/setStatut', `Error: ${err}`)
+        store.commit('ipfs/setStatus', `Error: ${err}`)
       }
     }
 
@@ -86,7 +87,37 @@ export default {
       return result
     }
 
+    app.config.globalProperties.$load = async function(cid){
+      console.log(cid)
+      // this.$get(cid)
+      let result = []
+      let rootNode = {name: cid+'/', path: cid+'/', _path: cid+'/', type: "dir", isRoot: "true", cid: cid, virtual_path: '/'}
+      result.push(rootNode)
 
+
+      store.commit('ipfs/setCurrent',rootNode)
+      // await ls(current._path)
+
+      for await (const file of ipfs.ls(cid)) {
+        console.log(file, file.path)
+        file.root = cid
+        result.push(file)
+      }
+      console.log(result)
+      store.commit('ipfs/setCurrentContent',result)
+      // for await (const chunk of ipfs.cat(cid)) {
+      //   console.info(chunk)
+      // }
+
+      // const chunks = []
+      //
+      // for await (const chunk of ipfs.files.read(cid)) {
+      //   chunks.push(chunk)
+      // }
+      //
+      // console.log(uint8ArrayConcat(chunks).toString())
+
+    }
 
     app.config.globalProperties.$upload1 = async function(files){
       const result = []

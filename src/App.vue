@@ -17,6 +17,7 @@
 
 
 <OperationResult />
+<IpnsView />
 
 <footer>
   <IpfsInfo />
@@ -30,6 +31,7 @@ import FileBrowser from "@/views/FileBrowser.vue";
 import CurrentCid from "@/components/CurrentCid.vue";
 
 import OperationResult from "@/components/OperationResult.vue";
+import IpnsView from "@/views/IpnsView.vue";
 
 export default {
   name: "App",
@@ -38,7 +40,8 @@ export default {
     // HelloWorld,
     FileBrowser,
     CurrentCid,
-    OperationResult
+    OperationResult,
+    IpnsView
   },
   created(){
     this.$initIpfs()
