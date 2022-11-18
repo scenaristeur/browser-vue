@@ -34,8 +34,16 @@ export default {
     //MFS, Mutable File System https://proto.school/mutable-file-system/02
 
     app.config.globalProperties.$get = async function(path= '/'){
+      console.log(path)
+      if (path.startsWith('/ipns/')){
+        // let id = path.slice(6)
+        path = await app.config.globalProperties.$resolve(path)
+      }
+      console.log(path)
+      if (path == '/ipfs') path = '/'
       let current = await ipfs.files.stat(path)
       current._path = path
+      console.log(current)
       store.commit('ipfs/setCurrent',current)
       await ls(current._path)
     }
@@ -132,8 +140,29 @@ export default {
     }
 
     app.config.globalProperties.$mkdir = async function(path){
+
+      path = path.startsWith('/ipfs/') ? path.slice(5) : path
+      console.log(path)
       await ipfs.files.mkdir(path, { parents: true })
       await this.$get(path)
+    }
+
+    app.config.globalProperties.$resolve = async function(path){
+
+
+      // const addr = '/ipns/'+k.id
+      console.log(path)
+
+      for await (const name of this.$ipfs.name.resolve(path)) {
+        console.log(name)
+        // /ipfs/QmQrX8hka2BtNHa8N8arAq16TCVx5qHcb46c5yPewRycLm
+        return name
+        //this.$get(name)
+      }
+      // path = path.startsWith('/ipfs/') ? path.slice(5) : path
+      // console.log(path)
+      // await ipfs.files.mkdir(path, { parents: true })
+      // await this.$get(path)
     }
 
 

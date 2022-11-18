@@ -4,7 +4,9 @@
     <h3>Browser</h3>
     <div>
 
-      <button @click="getFolder">GetRoot Folder</button>
+      <button @click="getFolder('/')">root folder</button>
+      <button @click="getFolder('/ipfs/QmYLMaBa9bd2cfkD8UU3boFC7bRrCR74KnxGF2cFrpbyLf')">new computer</button>
+      <button @click="getFolder('/ipns/k51qzi5uqu5dkuj0d4lkcpgv8eybu6e7wtoofxw0oh5as13ztzqu1lkd0nlzvn')">vm-16-bit</button>
       <button @click="addFolder">add (sub)folder</button>
       <UploadFiles />
       <button @click="openLoader">Load a remote computer</button>
@@ -31,7 +33,8 @@ export default {
     }
   },
   methods:{
-    getFolder(path='/'){
+    getFolder(path){
+      console.log(path)
       this.$get(path)
     },
     async addFolder(){
