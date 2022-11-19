@@ -1,5 +1,5 @@
 <a href="https://scenaristeur.github.io/browser-vue/" target="_blank">Demo</a>
-
+using port 8082 for npm run serve because ipfs desktop / daemon uses 8080
 
 # CIDS
 
@@ -13,9 +13,28 @@
 
 - 16-Bit-Virtual-Machine
 QmXW1it41S1Ap5ogskhSR1JLKhS7eWZr6atBQjsbbcVrbi
- https://ipfs.io/ipns/k51qzi5uqu5dkuj0d4lkcpgv8eybu6e7wtoofxw0oh5as13ztzqu1lkd0nlzvn
+https://ipfs.io/ipns/k51qzi5uqu5dkuj0d4lkcpgv8eybu6e7wtoofxw0oh5as13ztzqu1lkd0nlzvn
 
 
+#ipfs signalinaling webrtc server
+https://discuss.ipfs.tech/t/trying-orbitdb-with-jsipfs-and-webrtc/15530/3
+
+# ipfs js app
+- https://medium.com/swlh/ipfs-nodejs-app-8e35f504d440
+
+# execute js from IPFS  (examples in datatest folder)
+- console.js QmdUc2BE8qU4F5i7Coq6axavDU1xCd3STEQmqH152ee2z3
+- datatest QmUDFYFDtLuVMathoc8M2Dxjq8ja8K5Lvm1EhkPWqMet24
+
+```
+Swarm: [
+"/ip4/0.0.0.0/tcp/4002",
+"/ip4/127.0.0.1/tcp/4003/ws",
+// "/dns4/wrtc-star1.par.dwebops.pub/tcp/443/wss/p2p-webrtc-star",
+// "/dns4/wrtc-star2.sjc.dwebops.pub/tcp/443/wss/p2p-webrtc-star",
+'/ip4/<PUBLIC_IP_WEBRTC_SERVER>/tcp/13579/wss/p2p-webrtc-star'
+]
+```
 
 # cours
 https://proto.school/course/ipfs

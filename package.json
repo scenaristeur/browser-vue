@@ -39,7 +39,7 @@
     "sass": "^1.56.1",
     "sass-loader": "^13.2.0",
     "vue": "^3.0.4",
-    "vue-simple-context-menu": "^4.0.4",
+    "vue-plugin-load-script": "^2.1.1",
     "vuex": "^4.0.2"
   },
   "devDependencies": {

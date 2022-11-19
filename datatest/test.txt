@@ -1,1 +1,5 @@
-hello that's cool ! 
+hello that's cool !
+
+cids :
+- console.js QmdUc2BE8qU4F5i7Coq6axavDU1xCd3STEQmqH152ee2z3
+- display.js / bloidDisplay QmVJGXXXx9s7VVQu3fnKDw1R8TcFddTjmussbF2Bnf3M9k
