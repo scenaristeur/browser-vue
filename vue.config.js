@@ -9,4 +9,23 @@ module.exports = {
     // https: false,
     // hotOnly: false,
   },
+  pwa: {
+    name: 'Browser ipfs vue',
+    //  themeColor: '#4DBA87',
+    //  msTileColor: '#000000',
+    appleMobileWebAppCapable: 'yes',
+    appleMobileWebAppStatusBarStyle: 'black',
+    manifestOptions: {
+      share_target: {
+        action: publicPath,
+        method: "GET",
+        enctype: "application/x-www-form-urlencoded",
+        params: {
+          title: "title",
+          text: "text",
+          url: "url"
+        }
+      },
+    }
+  },
 }
