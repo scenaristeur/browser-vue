@@ -44,7 +44,8 @@ export default {
         {name: 'console', cid : "QmdUc2BE8qU4F5i7Coq6axavDU1xCd3STEQmqH152ee2z3"},
         { name: 'test loadscripts bloid display' , cid: 'QmXYjq1E5RrEEj7UMz31sDRtqFjGVPWNFZvkZcBYRrF9no' },
         {name: 'test_import', cid : "Qma3mjrFmu7iYgzFGjKNGYvZULZyYsiJRNeavCVZBV4gxo"},
-        {name: "vm16bits browserified", cid: 'QmVriSWGhgsd385mbCDqJriiUcqn7gryBnfzksrUc3QLH6'}
+        {name: "vm16bits browserified", cid: 'QmVriSWGhgsd385mbCDqJriiUcqn7gryBnfzksrUc3QLH6'},
+        {name: 'yjs test', cid: "QmQ8ZPj4aJZeznGr6Y7tghBRc5Q72uXaguxEy4nchuFSPN"}
       ],
       vm: "https://cdn.jsdelivr.net/gh/scenaristeur/16bits-js-vm@latest/index.js",
       cid : "QmVriSWGhgsd385mbCDqJriiUcqn7gryBnfzksrUc3QLH6",
