@@ -10,6 +10,7 @@ using port 8082 for npm run serve because ipfs desktop / daemon uses 8080
 - another computer home test tmp / : QmYLMaBa9bd2cfkD8UU3boFC7bRrCR74KnxGF2cFrpbyLf : directory
 
 
+- basic linux root filesystem QmVdxSLJwpfbzTyiHyiDGRDfdcG3WiTCrqQuqqa6ek63d5  https://tldp.org/LDP/sag/html/root-fs.html
 
 - 16-Bit-Virtual-Machine
 QmXW1it41S1Ap5ogskhSR1JLKhS7eWZr6atBQjsbbcVrbi

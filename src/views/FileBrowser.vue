@@ -6,7 +6,9 @@
 
       <button @click="getFolder('/')">root folder</button>
       <button @click="getFolder('/ipfs/QmYLMaBa9bd2cfkD8UU3boFC7bRrCR74KnxGF2cFrpbyLf')">new computer</button>
+      <button @click="getFolder('/ipns/12D3KooWABnYhTXQ9fUBXGkb8G9FEHvRUh3gTX6d2XFApVBE8shZ')">Linux root file system</button>
       <button @click="getFolder('/ipns/k51qzi5uqu5dkuj0d4lkcpgv8eybu6e7wtoofxw0oh5as13ztzqu1lkd0nlzvn')">vm-16-bit</button>
+      QmVdxSLJwpfbzTyiHyiDGRDfdcG3WiTCrqQuqqa6ek63d5
       <button @click="addFolder">add (sub)folder</button>
       <UploadFiles />
       <button @click="openLoader">Load a remote computer</button>

@@ -52,7 +52,8 @@ export default {
 
 
 
-    app.config.globalProperties.$upload = async function(files){
+    app.config.globalProperties.$upload_resize = async function(files){
+      // image compression : https://www.npmjs.com/package/browser-image-compression
       let folder = store.state.ipfs.current
       console.log(folder)
       let opts = {
@@ -127,15 +128,17 @@ export default {
 
     }
 
-    app.config.globalProperties.$upload1 = async function(files){
+    app.config.globalProperties.$upload = async function(files){
       const result = []
-      let f_array = Array.from(files).map((x) => ({path: x.name, content: x, type: x.type}))
+      console.log(store.state.ipfs.current)
+      let f_array = Array.from(files).map((x) => ({path: store.state.ipfs.current._path+x.name, content: x, type: x.type}))
       console.log(f_array)
       for await (const resultPart of ipfs.addAll(f_array, { wrapWithDirectory: true })) {
         result.push(resultPart)
       }
       console.log(result)
       store.commit('ipfs/setResult',result)
+      app.config.globalProperties.$get()
       return result
     }
 
